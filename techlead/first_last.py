@@ -10,14 +10,15 @@ class Solution:
       if arr[i] == target:
         ids.append(i)
     start = ids[0] if len(ids)>0 else -1
-    end   = ids[len(ids)-1] if len(ids)>0 else -1
-    ret = [start, end] if start-end!=0 else -1
-    return ret
+    end   = ids[len(ids)-1] if len(ids)>1 else start
+    ret = [start, end]
+    return ret if start != -1 and end != -1 else -1
   
 # Test program 
 arr = [1, 2, 2, 2, 2, 3, 4, 7, 8, 8] 
 x = 2
-print(Solution().getRange(arr, x))
-# [1, 4]
-
-print(Solution().getRange([1,2,3], 5))
+print(Solution().getRange(arr, x) == [1,4])
+print(Solution().getRange([1,1,2,1,5], 1) == [0,3])
+print(Solution().getRange([1,2,5], 2) == [1,1])
+print(Solution().getRange([1,2,5], 7) == -1)
+print(Solution().getRange([], 7) == -1)
