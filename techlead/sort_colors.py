@@ -15,21 +15,21 @@ Output: [0,0,1,1,2,2]
 
 class Solution:
   def sortColors(self, nums):
+    vals = [0,0,0]
     for i in range(len(nums)):
-      e = nums[i]
-      x = i
-      while(nums[x-1]>e):
-        x-=1
-      nums.insert(x, e)
-      nums.pop(i+1)
-      
-    return nums
+      vals[nums[i]] += 1
+    numsort = ([0]*vals[0]) + ([1]*vals[1]) + ([2]*vals[2])
+
+    return numsort
 
 nums = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
-print("Before Sort: ")
-print(nums)
-# [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
+      #[0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
 
-Solution().sortColors(nums)
-print(nums)
-print(nums == [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2])
+numsort = Solution().sortColors(nums)
+# print(numsort)
+print(numsort == [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2])
+
+print(Solution().sortColors([2,0,2,1,1,0]) == [0,0,1,1,2,2])
+print(Solution().sortColors([0]) == [0])
+print(Solution().sortColors([1]) == [1])
+print(Solution().sortColors([]) == [])
