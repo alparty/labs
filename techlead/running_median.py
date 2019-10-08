@@ -11,6 +11,7 @@ def running_median(stream):
     a = (a*n + i)/(n+1)
     n+=1
     print a,
+  print
 
 running_median([2, 1, 4, 7, 2, 0, 5])
 # 2 1.5 2 3.0 2 2.0 2
